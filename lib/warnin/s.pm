@@ -45,81 +45,81 @@ This pragma works just like the warnings pragma, but replaces the
 normal warnings with "humorous" warnin's.  Currently the following 
 warnings have been replaced:
 
-=head2 Use of uninitialized value
+=head2 C<Use of uninitialized value>
 
 =over
 
-=item Yer usin' a variable that ain't got a value
+=item C<Yer usin' a variable that ain't got a value>
 
 =back
 
-=head2 Argument "%s" isn't numeric
+=head2 C<Argument "%s" isn't numeric>
 
 =over
 
-=item  Suffering succatash! Ya used da strin' "%s"
+=item C< Suffering succatash! Ya used da strin' "%s">
 
-=item Even I know that "%s" ain't a number
+=item C<Even I know that "%s" ain't a number>
 
 =back
 
-=head2 Bareword found in conditional
+=head2 C<Bareword found in conditional>
 
 =over
 
-=item Might wanna put your clothes on. Maybe.
+=item C<Might wanna put your clothes on. Maybe.>
 
 =back
 
-=head2 Deep recursion on subroutine "%s"
+=head2 C<Deep recursion on subroutine "%s">
 
 =over
 
-=item Whoa there "%s"! Don't be running aroun' like chickin with its head cut off.
+=item C<Whoa there "%s"! Don't be running aroun' like chickin with its head cut off.>
 
-=item Man, I'm gettin' a headache in subroutine "%s"
+=item C<Man, I'm gettin' a headache in subroutine "%s">
 
 =back
 
-=head2 Unquoted string "%s" may clash with future reserved word
+=head2 C<Unquoted string "%s" may clash with future reserved word>
 
 =over
 
-=item I got dibs on %s. Pick yer own name
+=item C<I got dibs on %s. Pick yer own name>
 
 =back
 
-=head2 Bareword "%s" refers to nonexistent package
+=head2 C<Bareword "%s" refers to nonexistent package>
 
 =over
 
-=item I got no idear what this "%s" sposta be
+=item C<I got no idear what this "%s" sposta be>
 
 =back
 
-=head2 \1 better written as $1
+=head2 C<\1 better written as $1>
 
 =over
 
-=item do it the Perl way, son: $1, not \1
+=item C<do it the Perl way, son: $1, not \1>
 
 =back
 
-=head2 close() on unopened filehandle %s
+=head2 C<close() on unopened filehandle %s>
 
 =over
 
-=item Yer tryna close() %s what ain't been opened yet
+=item C<Yer tryna close() %s what ain't been opened yet>
 
 =back
 
-=head2 Warning: something's wrong
+=head2 C<Warning: something's wrong>
 
 =over
 
-=item Warning: WHAT the HECK
+=item C<Warning: WHAT the HECK>
 
-=item Warning: somethin' ain't right
+=item C<Warning: somethin' ain't right>
 
 =back
 
@@ -129,13 +129,17 @@ Chas. J. Owens IV, C<< <chas.owens at gmail.com> >>
 
 =head1 BUGS
 
-  * Any code that parses warning mesages will likely fail.
-  * It overrides the __WARN__ signal handler, so any code that also 
-    overrides it will stomp warnin's and vice versa
-  * There are probably problems with how the messages are being changed
-  * It is probably very slow.
-  * saying C<no warnin's;> and then C<use warnings;> doesn't turn off
-    warnin's (need to unhook the handler in unimport I guess).
+Any code that parses warning mesages will likely fail.
+
+It overrides the __WARN__ signal handler, so any code that 
+also overrides it will stomp warnin's and vice versa
+
+There are probably problems with how the messages are being changed
+
+It is probably very slow.
+
+saying C<no warnin's;> and then C<use warnings;> doesn't turn off
+warnin's (need to unhook the handler in unimport I guess).
 
 =head1 ACKNOWLEDGEMENTS
 
