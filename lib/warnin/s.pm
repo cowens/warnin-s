@@ -9,11 +9,11 @@ warnin's - like warnings, but with more casual language
 
 =head1 VERSION
 
-Version 0.0.3
+Version 0.0.4
 
 =cut
 
-our $VERSION = '0.0.3';
+our $VERSION = '0.0.4';
 
 
 =head1 SYNOPSIS
@@ -23,8 +23,8 @@ our $VERSION = '0.0.3';
 
   my ($x, $y);
 
-  #warnings: Use of uninitialized value in addition (+) at z.pl line 8.
-  #warnin's: Yer usin' a variable that ain't got a value in addition (+) at z.pl line 8. 
+  #warnings: Use of uninitialized value in addition (+) at z.pl line 16.
+  #warnin's: Yer usin' a variable that ain't got a value in addition (+) at z.pl line 16. 
   $x = $x + 4;
 
   no warnin's; #turn warnin's off
@@ -33,16 +33,95 @@ our $VERSION = '0.0.3';
 
   use warnin's; #turn warnin's back on
 
-  #warnings: Argument "" isn't numeric in numeric eq (==) at z.pl line 18.
-  #warnin's: Suffering succatash! Ya used da strin' "" in numeric eq (==) at z.pl line 18.
+  #warnings: Argument "" isn't numeric in numeric eq (==) at z.pl line 116.
+  #warnin's: Suffering succatash! Ya used da strin' "" in numeric eq (==) at z.pl line 116.
   if ("" == 0) {
      $y++
   }
 
 =head1 DESCRIPTION
 
-This pragma works just like the warnings pragma, but replaces the normal warnings
-with "humorous" warnin's.
+This pragma works just like the warnings pragma, but replaces the 
+normal warnings with "humorous" warnin's.  Currently the following 
+warnings have been replaced:
+
+=head2 Use of uninitialized value
+
+=over
+
+=item Yer usin' a variable that ain't got a value
+
+=back
+
+=head2 Argument "%s" isn't numeric
+
+=over
+
+=item  Suffering succatash! Ya used da strin' "%s"
+
+=item Even I know that "%s" ain't a number
+
+=back
+
+=head2 Bareword found in conditional
+
+=over
+
+=item Might wanna put your clothes on. Maybe.
+
+=back
+
+=head2 Deep recursion on subroutine "%s"
+
+=over
+
+=item Whoa there "%s"! Don't be running aroun' like chickin with its head cut off.
+
+=item Man, I'm gettin' a headache in subroutine "%s"
+
+=back
+
+=head2 Unquoted string "%s" may clash with future reserved word
+
+=over
+
+=item I got dibs on %s. Pick yer own name
+
+=back
+
+=head2 Bareword "%s" refers to nonexistent package
+
+=over
+
+=item I got no idear what this "%s" sposta be
+
+=back
+
+=head2 \1 better written as $1
+
+=over
+
+=item do it the Perl way, son: $1, not \1
+
+=back
+
+=head2 close() on unopened filehandle %s
+
+=over
+
+=item Yer tryna close() %s what ain't been opened yet
+
+=back
+
+=head2 Warning: something's wrong
+
+=over
+
+=item Warning: WHAT the HECK
+
+=item Warning: somethin' ain't right
+
+=back
 
 =head1 AUTHOR
 
@@ -103,6 +182,11 @@ my %jokes = (
 
 	'close\(\) on unopened filehandle (\w+)' =>
 		q/Yer tryna close() $1 what ain't been opened yet/,
+
+	"Warning: something's wrong" => [
+		"Warning: WHAT the HECK",
+		"Warning: somethin' ain't right",
+	],
 );
 
 #wrap the jokes in another set of double quotes to 

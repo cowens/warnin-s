@@ -1,6 +1,6 @@
 #!perl -T
 
-use Test::More tests => 19;
+use Test::More tests => 25;
 
 #capture warnings
 my $warn;
@@ -14,12 +14,23 @@ use strict;
 use warnin's; #' fix syntax highlighting in Vim
 
 for my $i (1 .. 6) {
-	eval "'' == 0";
-	my $m = $warn;
-
+	warn "";
 	ok(
-		$m =~ /Suffering succatash! Ya used da strin' "" in numeric eq \(==\)/ or
-		$m =~ /Even I know that "" ain't a number in numeric eq \(==\)/,
+		(
+			$warn =~ /Warning: WHAT the HECK/ or
+			$warn =~ /Warning: somethin' ain't right/
+		),
+		"Warning: something’s wrong $i"
+	);
+}
+
+for my $i (1 .. 6) {
+	eval "'' == 0";
+	ok(
+		(
+			$warn =~ /Suffering succatash! Ya used da strin' "" in numeric eq \(==\)/ or
+			$warn =~ /Even I know that "" ain't a number in numeric eq \(==\)/
+		),
 		"non-number in numeric context $i"
 	);
 }
@@ -35,8 +46,10 @@ ok($warn =~ /Might wanna put your clothes on. Maybe./, "Bareword found in condit
 for my $i (1 .. 6) {
 	recurse();
 	ok(
-		$warn =~ /Whoa there "main::recurse"! Don't be running aroun' like chickin with its head cut off./ or
-		$warn =~ /Man, I'm gettin' a headache in subroutine "main::recurse"/,
+		(
+			$warn =~ /Whoa there "main::recurse"! Don't be running aroun' like chickin with its head cut off./ or
+			$warn =~ /Man, I'm gettin' a headache in subroutine "main::recurse"/
+		),
         	"Deep recursion on subroutine $1"
 	);
 }
