@@ -1,0 +1,10 @@
+Changes
+MANIFEST
+Makefile.PL
+README
+lib/warnin/s.pm
+t/00-load.t
+t/01-warn.t
+t/boilerplate.t
+t/pod-coverage.t
+t/pod.t
