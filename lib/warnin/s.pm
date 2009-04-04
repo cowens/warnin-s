@@ -39,10 +39,16 @@ our $VERSION = '0.0.4';
      $y++
   }
 
+=cut
+
+#prevent pod2html's "helpful" behavior of changing "" to ``''
+#by using the entity E<34>, note this note requred above
+#because indents turn into pre blocks 
+
 =head1 DESCRIPTION
 
 This pragma works just like the warnings pragma, but replaces the 
-normal warnings with "humorous" warnin's.  Currently the following 
+normal warnings with E<34>humorousE<34> warnin's.  Currently the following 
 warnings have been replaced:
 
 =head2 Use of uninitialized value
@@ -53,13 +59,13 @@ warnings have been replaced:
 
 =back
 
-=head2 Argument "%s" isn't numeric
+=head2 Argument E<34>%sE<34> isn't numeric
 
 =over
 
-=item  Suffering succatash! Ya used da strin' "%s"
+=item  Suffering succatash! Ya used da strin' E<34>%sE<34>
 
-=item Even I know that "%s" ain't a number
+=item Even I know that E<34>%sE<34> ain't a number
 
 =back
 
@@ -71,17 +77,17 @@ warnings have been replaced:
 
 =back
 
-=head2 Deep recursion on subroutine "%s"
+=head2 Deep recursion on subroutine E<34>%sE<34>
 
 =over
 
-=item Whoa there "%s"! Don't be running aroun' like chickin with its head cut off.
+=item Whoa there E<34>%sE<34>! Don't be running aroun' like chickin with its head cut off.
 
-=item Man, I'm gettin' a headache in subroutine "%s"
+=item Man, I'm gettin' a headache in subroutine E<34>%sE<34>
 
 =back
 
-=head2 Unquoted string "%s" may clash with future reserved word
+=head2 Unquoted string E<34>%sE<34> may clash with future reserved word
 
 =over
 
@@ -89,11 +95,11 @@ warnings have been replaced:
 
 =back
 
-=head2 Bareword "%s" refers to nonexistent package
+=head2 Bareword E<34>%sE<34> refers to nonexistent package
 
 =over
 
-=item I got no idear what this "%s" sposta be
+=item I got no idear what this E<34>%sE<34> sposta be
 
 =back
 
@@ -105,11 +111,16 @@ warnings have been replaced:
 
 =back
 
-=head2 close() on unopened filehandle %s
+=cut
+
+#must fool pod2html into not messing with close()
+#by using the entity E<40> instead of (
+
+=head2 closeE<40>) on unopened filehandle %s
 
 =over
 
-=item Yer tryna close() %s what ain't been opened yet
+=item Yer tryna closeE<40>) %s what ain't been opened yet
 
 =back
 
@@ -129,13 +140,17 @@ Chas. J. Owens IV, C<< <chas.owens at gmail.com> >>
 
 =head1 BUGS
 
-  * Any code that parses warning mesages will likely fail.
-  * It overrides the __WARN__ signal handler, so any code that also 
-    overrides it will stomp warnin's and vice versa
-  * There are probably problems with how the messages are being changed
-  * It is probably very slow.
-  * saying C<no warnin's;> and then C<use warnings;> doesn't turn off
-    warnin's (need to unhook the handler in unimport I guess).
+Any code that parses warning mesages will likely fail.
+
+It overrides the C<__WARN__> signal handler, so any code that also 
+overrides it will stomp warnin's and vice versa
+
+There are probably problems with how the messages are being changed
+
+It is probably very slow.
+
+saying C<no warnin's;> and then C<use warnings;> doesn't turn off
+warnin's (need to unhook the handler in unimport I guess).
 
 =head1 ACKNOWLEDGEMENTS
 
@@ -144,6 +159,8 @@ James Mastros for spelling warnings incorrectly F<http://www.nntp.perl.org/group
 Ronald J Kimball for pointing out the mistake.
 
 Others on StackOverflow.com for creating warnin' messages F<http://stackoverflow.com/questions/711117/what-warnings-would-you-like-a-warnins-pragma-to-throw>
+
+David Nicol for suggesting C<warnin's> instead of C<warnins>
 
 =head1 COPYRIGHT & LICENSE
 

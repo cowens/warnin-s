@@ -1,0 +1,5 @@
+* Parse the POD to find the replacements so I stop repeating myself
+* generate README from POD so I stop repeating myself
+* add more warnin's
+* add more tests
+* alphabetize the warnin's in the POD
