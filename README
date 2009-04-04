@@ -14,30 +14,35 @@ SUPPORT AND DOCUMENTATION
 This pragma modifies the following warning messages
 
 	Use of uninitialized value
-		Yer usin' a variable that ain't got a value
+		* Yer usin' a variable that ain't got a value
 
 	Argument "%s" isn't numeric
-		Suffering succatash! Ya used da strin' "%s"
-		Even I know that "%s" ain't a number
+		* Suffering succatash! Ya used da strin' "%s"
+		* Even I know that "%s" ain't a number
 
 	Bareword found in conditional
-		Might wanna put your clothes on. Maybe.
+		* Might wanna put your clothes on. Maybe.
 
 	Deep recursion on subroutine "%s"
-		Whoa there "%s"! Don't be running aroun' like chickin with its head cut off.
-		Man, I'm gettin' a headache in subroutine "%s"
+		* Whoa there "%s"! Don't be running aroun' like chickin with its head cut off.
+		* Man, I'm gettin' a headache in subroutine "%s"
 
 	Unquoted string "%s" may clash with future reserved word
-		I got dibs on %s. Pick yer own name
+		* I got dibs on %s. Pick yer own name
 
 	Bareword "%s" refers to nonexistent package
-		I got no idear what this "%s" sposta be
+		* I got no idear what this "%s" sposta be
 
 	\1 better written as $1
-		do it the Perl way, son: $1, not \1
+		* do it the Perl way, son: $1, not \1
 
 	close() on unopened filehandle %s
-		Yer tryna close() %s what ain't been opened yet
+		* Yer tryna close() %s what ain't been opened yet
+
+	Warning: something’s wrong
+		* Warning: WHAT the HECK
+		* Warning: somethin’ ain’t right
+
 
 After installing, you can find documentation for this module with the
 perldoc command.
